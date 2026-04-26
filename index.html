@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -33,10 +33,14 @@
         }
 
         h1,
+        .logo {
+            font-family: 'Michroma', sans-serif;
+            text-transform: uppercase;
+        }
+
         h2,
         h3,
-        h4,
-        .logo {
+        h4 {
             font-family: var(--heading-font);
         }
 
@@ -83,6 +87,8 @@
             letter-spacing: 2px;
             position: relative;
             transition: all 0.3s ease;
+            color: #fff !important;
+            text-decoration: none;
         }
 
         .logo::after {
@@ -186,9 +192,6 @@
             text-align: center;
             position: relative;
             z-index: 3;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.2s ease forwards 0.5s;
         }
 
         .hero-logo {
@@ -203,7 +206,7 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             line-height: 1.1;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -216,40 +219,49 @@
             align-items: center;
         }
 
-        .typewriter-line {
+        .hero-line {
             display: block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 4px solid var(--accent-color);
-            width: 0;
-            animation: typing 1.5s steps(20, end) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
             margin: 5px 0;
             letter-spacing: 2px;
         }
 
-        .typewriter-line.first {
-            animation-delay: 0.8s;
+        .hero-line.first {
+            animation-delay: 0.6s;
         }
 
-        .typewriter-line.second {
-            animation-delay: 2.3s;
-            border-right-color: transparent;
-            animation-name: typing-no-cursor;
+        .hero-line.second {
+            animation-delay: 0.9s;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        .hero-logo {
+            max-width: 225px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards 0.3s;
         }
 
-        @keyframes typing-no-cursor {
-            from { width: 0; border-right-color: var(--accent-color); }
-            to { width: 100%; border-right-color: transparent; }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ddd;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards 1.2s;
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent-color) }
+        .hero .btn {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards 1.5s;
         }
 
         @keyframes blink-caret {
@@ -399,7 +411,7 @@
         }
 
         .founder-img {
-            max-width: 100%;
+            max-width: 40%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -781,13 +793,15 @@
             visibility: visible;
         }
 
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.5);
-        }
-
         /* Responsive */
         @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-line {
+                letter-spacing: 1px;
+            }
             .burger {
                 display: block;
                 z-index: 101;
@@ -819,8 +833,30 @@
 
             .nav-links.nav-active li {
                 opacity: 1 !important;
-                animation: none !important;
-                transform: none !important;
+                animation: navLinkFade 0.5s ease forwards !important;
+            }
+
+            .burger.toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .burger.toggle .line2 {
+                opacity: 0;
+            }
+
+            .burger.toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            @keyframes navLinkFade {
+                from {
+                    opacity: 0;
+                    transform: translateX(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
 
             .hero {
@@ -846,18 +882,17 @@
             }
 
             .hero-logo {
-                max-width: 180px;
+                max-width: 140px;
                 margin: 0 auto 20px;
                 display: block;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 1.6rem;
             }
 
-            .typewriter-line {
+            .hero-line {
                 letter-spacing: 1px;
-                animation-duration: 1.2s;
             }
 
             .hero p {
@@ -901,7 +936,7 @@
     <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">GHOSECORP</div>
+                <a href="#home" class="logo">GHOSECORP</a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -924,11 +959,12 @@
             <div class="hero-content">
                 <img src="assets/ghosecorp_logo.jpg" alt="Ghosecorp Logo" class="hero-logo">
                 <h1 class="hero-title">
-                    <span class="typewriter-line first">Pioneering Technology</span>
-                    <span class="typewriter-line second">Solutions</span>
+                    <span class="hero-line first">Pioneering Technology</span>
+                    <span class="hero-line second">Solutions</span>
                 </h1>
-                <p>Accelerating innovation in the digital landscape. Ghosecorp transforms ideas into cutting-edge
-                    technology that empowers businesses to thrive in tomorrow's world.</p>
+                <div class="hero-desc-container" style="min-height: 3em;">
+                    <p id="hero-desc">Transforming bold ideas into cutting-edge technology that empowers the businesses of tomorrow.</p>
+                </div>
                 <a href="#contact" class="btn">Get Started</a>
             </div>
         </div>
@@ -1028,7 +1064,7 @@
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17.5 19a3.5 3.5 0 1 1 0-7c.2 0 .4 0 .6.1a6 6 0 1 1 3.4 8.9h-4z" />
+                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                         </svg>
                     </div>
                     <h3 class="service-title">Cloud Infrastructure</h3>
@@ -1077,7 +1113,7 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/ghosecorp/" aria-label="LinkedIn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -1085,14 +1121,14 @@
                         <circle cx="4" cy="4" r="2" />
                     </svg>
                 </a>
-                <a href="#" aria-label="Twitter">
+                <a href="https://x.com/ghosecorp" aria-label="Twitter">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path
                             d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                     </svg>
                 </a>
-                <a href="#" aria-label="GitHub">
+                <a href="https://github.com/ghosecorp/" aria-label="GitHub">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -1105,13 +1141,6 @@
     </footer>
     <!-- Back to top button -->
     <a href="#home" class="back-to-top" id="back-to-top">↑</a>
-    <!-- Cursor effect (advanced) -->
-    <div id="custom-cursor"
-        style="position: fixed; width: 20px; height: 20px; border: 2px solid var(--highlight-color); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); display: none; mix-blend-mode: difference;">
-    </div>
-    <div id="cursor-trailer"
-        style="position: fixed; width: 100px; height: 100px; border-radius: 50%; background: rgba(52, 152, 219, 0.1); pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s; display: none;">
-    </div>
     <!-- JavaScript -->
     <script>
         // Navigation toggle
@@ -1308,64 +1337,17 @@
             typing();
         }
         // Apply typing effect to a paragraph in the hero section
-        const heroDescriptionElement = document.querySelector('.hero p');
+        const heroDescriptionElement = document.getElementById('hero-desc');
         if (heroDescriptionElement) {
             const originalText = heroDescriptionElement.textContent;
             heroDescriptionElement.textContent = '';
+            heroDescriptionElement.style.opacity = '1';
+            heroDescriptionElement.style.transform = 'none';
+            heroDescriptionElement.style.animation = 'none';
+            
             setTimeout(() => {
                 typeEffect(heroDescriptionElement, originalText, 25);
-            }, 3800);
-        }
-
-        // Smooth Custom cursor effect
-        const customCursor = document.getElementById('custom-cursor');
-        const cursorTrailer = document.getElementById('cursor-trailer');
-        
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let trailerX = 0, trailerY = 0;
-
-        if (window.innerWidth > 768) {
-            document.addEventListener('mousemove', (e) => {
-                if (customCursor.style.display === 'none') {
-                    customCursor.style.display = 'block';
-                    cursorTrailer.style.display = 'block';
-                }
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            function animateCursor() {
-                // Smooth interpolation
-                cursorX += (mouseX - cursorX) * 0.2;
-                cursorY += (mouseY - cursorY) * 0.2;
-                trailerX += (mouseX - trailerX) * 0.1;
-                trailerY += (mouseY - trailerY) * 0.1;
-
-                customCursor.style.left = cursorX + 'px';
-                customCursor.style.top = cursorY + 'px';
-                cursorTrailer.style.left = trailerX + 'px';
-                cursorTrailer.style.top = trailerY + 'px';
-
-                requestAnimationFrame(animateCursor);
-            }
-            requestAnimationFrame(animateCursor);
-
-            document.querySelectorAll('a, button, .service-card, input, textarea').forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    customCursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                    customCursor.style.borderColor = '#fff';
-                    cursorTrailer.style.transform = 'translate(-50%, -50%) scale(0.5)';
-                    cursorTrailer.style.background = 'rgba(0, 242, 255, 0.2)';
-                });
-                element.addEventListener('mouseleave', () => {
-                    customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                    customCursor.style.borderColor = 'var(--highlight-color)';
-                    cursorTrailer.style.transform = 'translate(-50%, -50%) scale(1)';
-                    cursorTrailer.style.background = 'rgba(0, 242, 255, 0.1)';
-                });
-            });
-            document.body.style.cursor = 'none';
+            }, 1200);
         }
         // Floating animation for service icons
         document.querySelectorAll('.service-icon').forEach(icon => {
