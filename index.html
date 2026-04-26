@@ -5,22 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHOSECORP | Technology Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --primary-color: #000000;
+            --primary-color: #050505;
             --secondary-color: #ffffff;
-            --accent-color: #333333;
-            --text-color: #ffffff;
-            --bg-color: #0a0a0a;
-            --highlight-color: #3498db;
+            --accent-color: #00f2ff;
+            --accent-glow: rgba(0, 242, 255, 0.5);
+            --text-color: #f0f0f0;
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --highlight-color: #00f2ff;
+            --body-font: 'Inter', sans-serif;
+            --heading-font: 'Outfit', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--body-font);
             scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: var(--heading-font);
         }
 
         body {
@@ -186,31 +203,53 @@
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 4rem;
+            line-height: 1.1;
             margin-bottom: 20px;
-            letter-spacing: 2px;
             text-transform: uppercase;
-            position: relative;
-            display: inline-block;
+            font-weight: 700;
         }
 
-        .typewriter {
+        .hero-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .typewriter-line {
+            display: block;
             overflow: hidden;
-            border-right: 3px solid var(--highlight-color);
             white-space: nowrap;
-            margin: 0 auto;
+            border-right: 4px solid var(--accent-color);
+            width: 0;
+            animation: typing 1.5s steps(20, end) forwards;
+            margin: 5px 0;
             letter-spacing: 2px;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        .typewriter-line.first {
+            animation-delay: 0.8s;
+        }
+
+        .typewriter-line.second {
+            animation-delay: 2.3s;
+            border-right-color: transparent;
+            animation-name: typing-no-cursor;
         }
 
         @keyframes typing {
-            from {
-                width: 0
-            }
+            from { width: 0 }
+            to { width: 100% }
+        }
 
-            to {
-                width: 100%
-            }
+        @keyframes typing-no-cursor {
+            from { width: 0; border-right-color: var(--accent-color); }
+            to { width: 100%; border-right-color: transparent; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color) }
         }
 
         @keyframes blink-caret {
@@ -424,17 +463,19 @@
         }
 
         .service-card {
-            background-color: rgba(255, 255, 255, 0.03);
-            padding: 30px;
-            border-radius: 10px;
-            transition: all 0.5s ease;
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 15px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             z-index: 1;
             height: 100%;
             opacity: 0;
             transform: translateY(30px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .service-card.show {
@@ -810,9 +851,13 @@
                 display: block;
             }
 
-            .typewriter {
-                font-size: 28px !important;
-                letter-spacing: 1px !important;
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .typewriter-line {
+                letter-spacing: 1px;
+                animation-duration: 1.2s;
             }
 
             .hero p {
@@ -878,7 +923,10 @@
         <div class="container">
             <div class="hero-content">
                 <img src="assets/ghosecorp_logo.jpg" alt="Ghosecorp Logo" class="hero-logo">
-                <h1 class="typewriter">Pioneering Technology Solutions</h1>
+                <h1 class="hero-title">
+                    <span class="typewriter-line first">Pioneering Technology</span>
+                    <span class="typewriter-line second">Solutions</span>
+                </h1>
                 <p>Accelerating innovation in the digital landscape. Ghosecorp transforms ideas into cutting-edge
                     technology that empowers businesses to thrive in tomorrow's world.</p>
                 <a href="#contact" class="btn">Get Started</a>
@@ -896,11 +944,12 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2 class="section-title">About Us</h2>
-                    <p>GHOSECORP was created by Anubroto Ghose as a space to develop interesting projects, explore new ideas, and build practical, innovative solutions in technology.</p?
+                    <p>GHOSECORP was created by Anubroto Ghose as a space to develop interesting projects, explore new
+                        ideas, and build practical, innovative solutions in technology.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://avatars.githubusercontent.com/u/10089699?v=4" alt="Anubroto Ghose"
-                        class="founder-img">
+                    <img src="https://raw.githubusercontent.com/anubrotoGhose/anubrotoGhose/main/assets/profilePage.jpeg"
+                        alt="Anubroto Ghose" class="founder-img">
                     <p><strong>Anubroto Ghose</strong> - Founder</p>
                 </div>
             </div>
@@ -915,37 +964,73 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🚀</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
                     <h3 class="service-title">AI Solutions</h3>
                     <p>Cutting-edge artificial intelligence and machine learning solutions tailored to your business
                         needs, enabling intelligent automation and data-driven insights.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💻</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
                     <h3 class="service-title">Software Development</h3>
                     <p>Custom software development with clean, efficient code that scales with your business, built
                         using the latest technologies and best practices.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⚙️</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
+                    </div>
                     <h3 class="service-title">Software Tools And Libraries</h3>
                     <p>Custom-built software libraries and developer tools to accelerate your development workflow and
                         enhance productivity through streamlined processes.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                    </div>
                     <h3 class="service-title">Data Analytics</h3>
                     <p>Transform raw data into actionable insights that drive strategic business decisions, helping you
                         unlock the full potential of your data assets.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                            <line x1="12" y1="18" x2="12.01" y2="18" />
+                        </svg>
+                    </div>
                     <h3 class="service-title">Mobile Solutions</h3>
                     <p>Intuitive, high-performance mobile applications designed for optimal user experience across
                         multiple platforms and devices.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">☁️</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19a3.5 3.5 0 1 1 0-7c.2 0 .4 0 .6.1a6 6 0 1 1 3.4 8.9h-4z" />
+                        </svg>
+                    </div>
                     <h3 class="service-title">Cloud Infrastructure</h3>
                     <p>Scalable cloud solutions that provide flexibility, security, and cost efficiency, empowering your
                         business with robust and reliable infrastructure.</p>
@@ -962,7 +1047,7 @@
                     <h3>Contact Information</h3>
                     <p>Ready to transform your business with cutting-edge technology? Reach out to our team today and
                         discover how GHOSECORP can help you achieve your goals.</p>
-                    <p>Email: ghoseanubroto@gmail.com</p>
+                    <p>Email: ghosecorp@gmail.com</p>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -992,10 +1077,28 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#" aria-label="LinkedIn">in</a>
-                <a href="#" aria-label="Twitter">𝕏</a>
-                <a href="#" aria-label="Facebook">f</a>
-                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                </a>
             </div>
             <p class="copyright">© 2025 GHOSECORP. All Rights Reserved.</p>
         </div>
@@ -1111,50 +1214,46 @@
             });
         });
 
-        // Particles JS Effect
+        // Optimized Particles JS Effect
         function createParticles() {
             const particlesContainer = document.getElementById('particles-js');
-            const particleCount = window.innerWidth < 768 ? 50 : 100;
+            if (!particlesContainer) return;
+            
+            const particleCount = window.innerWidth < 768 ? 30 : 60;
+            const fragment = document.createDocumentFragment();
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
 
-                // Random position
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
+                const size = Math.random() * 3 + 1;
+                const opacity = Math.random() * 0.3 + 0.05;
 
-                // Random size
-                const size = Math.random() * 5 + 1;
-
-                // Random opacity
-                const opacity = Math.random() * 0.5 + 0.1;
-
-                // Apply styles
                 particle.style.cssText = `
                     position: absolute;
-                    top: ${posY}%;
-                    left: ${posX}%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
                     width: ${size}px;
                     height: ${size}px;
-                    background-color: rgba(255, 255, 255, ${opacity});
+                    background-color: rgba(0, 242, 255, ${opacity});
                     border-radius: 50%;
                     pointer-events: none;
                 `;
 
-                // Random animation duration
-                const animationDuration = Math.random() * 20 + 10;
+                const duration = (Math.random() * 15 + 10) * 1000;
                 particle.animate([
-                    { transform: 'translateY(0) rotate(0)', opacity: opacity },
-                    { transform: `translateY(-${Math.random() * 100 + 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    { transform: 'translateY(0) translateX(0)', opacity: opacity },
+                    { transform: `translateY(-${Math.random() * 100 + 50}px) translateX(${Math.random() * 40 - 20}px)`, opacity: 0 }
                 ], {
-                    duration: animationDuration * 1000,
+                    duration: duration,
                     iterations: Infinity,
-                    delay: Math.random() * 5000
+                    easing: 'linear',
+                    delay: Math.random() * -duration
                 });
 
-                particlesContainer.appendChild(particle);
+                fragment.appendChild(particle);
             }
+            particlesContainer.appendChild(fragment);
         }
 
         // Create dynamic background particles
@@ -1214,40 +1313,56 @@
             const originalText = heroDescriptionElement.textContent;
             heroDescriptionElement.textContent = '';
             setTimeout(() => {
-                typeEffect(heroDescriptionElement, originalText, 30);
-            }, 1500);
+                typeEffect(heroDescriptionElement, originalText, 25);
+            }, 3800);
         }
 
-        // Custom cursor effect
+        // Smooth Custom cursor effect
         const customCursor = document.getElementById('custom-cursor');
         const cursorTrailer = document.getElementById('cursor-trailer');
-        if (window.innerWidth > 768) { // Only on desktop
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let trailerX = 0, trailerY = 0;
+
+        if (window.innerWidth > 768) {
             document.addEventListener('mousemove', (e) => {
                 if (customCursor.style.display === 'none') {
                     customCursor.style.display = 'block';
                     cursorTrailer.style.display = 'block';
                 }
-                customCursor.style.left = e.clientX + 'px';
-                customCursor.style.top = e.clientY + 'px';
-                setTimeout(() => {
-                    cursorTrailer.style.left = e.clientX + 'px';
-                    cursorTrailer.style.top = e.clientY + 'px';
-                }, 100);
+                mouseX = e.clientX;
+                mouseY = e.clientY;
             });
+
+            function animateCursor() {
+                // Smooth interpolation
+                cursorX += (mouseX - cursorX) * 0.2;
+                cursorY += (mouseY - cursorY) * 0.2;
+                trailerX += (mouseX - trailerX) * 0.1;
+                trailerY += (mouseY - trailerY) * 0.1;
+
+                customCursor.style.left = cursorX + 'px';
+                customCursor.style.top = cursorY + 'px';
+                cursorTrailer.style.left = trailerX + 'px';
+                cursorTrailer.style.top = trailerY + 'px';
+
+                requestAnimationFrame(animateCursor);
+            }
+            requestAnimationFrame(animateCursor);
+
             document.querySelectorAll('a, button, .service-card, input, textarea').forEach(element => {
                 element.addEventListener('mouseenter', () => {
                     customCursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
                     customCursor.style.borderColor = '#fff';
-                    cursorTrailer.style.width = '50px';
-                    cursorTrailer.style.height = '50px';
-                    cursorTrailer.style.background = 'rgba(52, 152, 219, 0.2)';
+                    cursorTrailer.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                    cursorTrailer.style.background = 'rgba(0, 242, 255, 0.2)';
                 });
                 element.addEventListener('mouseleave', () => {
                     customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
                     customCursor.style.borderColor = 'var(--highlight-color)';
-                    cursorTrailer.style.width = '100px';
-                    cursorTrailer.style.height = '100px';
-                    cursorTrailer.style.background = 'rgba(52, 152, 219, 0.1)';
+                    cursorTrailer.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursorTrailer.style.background = 'rgba(0, 242, 255, 0.1)';
                 });
             });
             document.body.style.cursor = 'none';
