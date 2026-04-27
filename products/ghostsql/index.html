@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Tools & Libraries | Services | GHOSECORP</title>
+    <title>GhostSQL | Products | GHOSECORP</title>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -74,12 +74,39 @@
             color: var(--accent-color);
             margin-bottom: 15px;
         }
+        code {
+            background: #111;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-color);
+        }
+        pre {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+        .tech-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
         .product-link {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
             color: var(--accent-color);
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
         }
@@ -108,31 +135,64 @@
 <body>
     <div class="container">
         <header>
-            <h1>Tools & Libraries</h1>
-            <p class="subtitle">Accelerating Developer Workflows</p>
+            <h1>GhostSQL</h1>
+            <p class="subtitle">PostgreSQL-Compatible Vector Database</p>
         </header>
 
         <section class="section">
-            <h2>Overview</h2>
-            <p>GHOSECORP develops high-utility software tools and libraries that empower developers to build faster, safer, and more efficient applications. Our focus is on solving complex infrastructure challenges through clean, well-documented code.</p>
+            <h2>About GhostSQL</h2>
+            <p>GhostSQL is GHOSECORP's high-performance relational database engine. It combines the reliability of PostgreSQL compatibility with advanced vector search capabilities, making it the perfect foundation for AI-driven applications and RAG architectures.</p>
+            <div style="margin-top: 20px;">
+                <span class="tech-badge">PostgreSQL API</span>
+                <span class="tech-badge">Vector Indexing</span>
+                <span class="tech-badge">RBAC Security</span>
+            </div>
         </section>
 
         <section class="section">
-            <h2>Our Tools</h2>
+            <h2>Technical Features</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>High-Performance Caching</h3>
-                    <p>Providing distributed in-memory storage solutions that minimize database bottlenecks and improve application responsiveness.</p>
-                    <a href="../../products/sterling/" class="product-link">Learn about Sterling →</a>
+                    <h3>Vector Search</h3>
+                    <p>Integrated <code>VECTOR</code> type with HNSW indexing for fast similarity search across millions of embeddings.</p>
                 </div>
                 <div class="card">
-                    <h3>Developer Frameworks</h3>
-                    <p>Creating specialized libraries and frameworks to handle complex networking and data transformation tasks.</p>
+                    <h3>Full Relational Support</h3>
+                    <p>Supports JOINs, Foreign Keys, Aggregates, and Transactions in a familiar SQL environment.</p>
                 </div>
                 <div class="card">
-                    <h3>Security Toolkits</h3>
-                    <p>Building automated setup and validation tools to ensure your development environment is secure by default.</p>
+                    <h3>Advanced Security</h3>
+                    <p>Built-in Row-Level Security (RLS) and Role-Based Access Control (RBAC) to ensure data integrity.</p>
                 </div>
+                <div class="card">
+                    <h3>Cloud Ready</h3>
+                    <p>Optimized for containerized environments with native Docker and Kubernetes support.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>SQL Interface</h2>
+            <pre>
+-- Fast vector similarity search
+SELECT id, text FROM embeddings
+ORDER BY COSINE_DISTANCE(embedding, [0.1, 0.2, 0.3, 0.4])
+LIMIT 5;</pre>
+        </section>
+
+        <section class="section">
+            <h2>Quick Links</h2>
+            <div class="grid">
+                <a href="https://ghosecorp.github.io/ghostsql/" class="card" style="text-decoration: none; color: inherit;">
+                    <h3>Documentation</h3>
+                    <p>Read the full technical documentation, architecture overview, and getting started guide.</p>
+                    <span class="product-link">View Docs →</span>
+                </a>
+                <a href="https://hub.docker.com/r/ghosecorp/ghostsql" class="card" style="text-decoration: none; color: inherit;">
+                    <h3>Docker Hub</h3>
+                    <p>Pull the latest GhostSQL images and deploy in seconds using Docker or Kubernetes.</p>
+                    <span class="product-link">Pull Image →</span>
+                </a>
             </div>
         </section>
 

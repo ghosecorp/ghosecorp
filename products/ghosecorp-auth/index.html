@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Tools & Libraries | Services | GHOSECORP</title>
+    <title>ghosecorp-auth | Products | GHOSECORP</title>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -74,18 +74,15 @@
             color: var(--accent-color);
             margin-bottom: 15px;
         }
-        .product-link {
+        .tech-badge {
             display: inline-block;
-            margin-top: 20px;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-        .product-link:hover {
-            border-bottom-color: var(--accent-color);
-            text-shadow: 0 0 10px var(--accent-glow);
+            padding: 5px 15px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
         .back-btn {
             display: inline-block;
@@ -108,32 +105,49 @@
 <body>
     <div class="container">
         <header>
-            <h1>Tools & Libraries</h1>
-            <p class="subtitle">Accelerating Developer Workflows</p>
+            <h1>ghosecorp-auth</h1>
+            <p class="subtitle">Secure Identity & Access Management</p>
         </header>
 
         <section class="section">
-            <h2>Overview</h2>
-            <p>GHOSECORP develops high-utility software tools and libraries that empower developers to build faster, safer, and more efficient applications. Our focus is on solving complex infrastructure challenges through clean, well-documented code.</p>
+            <h2>About ghosecorp-auth</h2>
+            <p>ghosecorp-auth is a scalable, microservices-based authentication system built to secure modern cloud ecosystems. It provides a robust framework for managing user identities, session persistence, and third-party integrations.</p>
+            <div style="margin-top: 20px;">
+                <span class="tech-badge">OAuth 2.0 / PKCE</span>
+                <span class="tech-badge">Multi-Factor Auth</span>
+                <span class="tech-badge">PostgreSQL</span>
+            </div>
         </section>
 
         <section class="section">
-            <h2>Our Tools</h2>
+            <h2>Security Features</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>High-Performance Caching</h3>
-                    <p>Providing distributed in-memory storage solutions that minimize database bottlenecks and improve application responsiveness.</p>
-                    <a href="../../products/sterling/" class="product-link">Learn about Sterling →</a>
+                    <h3>Flexible Auth</h3>
+                    <p>Supports Email/Password, Social OAuth (Google, Microsoft), and custom provider integrations.</p>
                 </div>
                 <div class="card">
-                    <h3>Developer Frameworks</h3>
-                    <p>Creating specialized libraries and frameworks to handle complex networking and data transformation tasks.</p>
+                    <h3>Core API</h3>
+                    <p>The heart of the system, handling session management, credential validation, and token issuance with high-performance throughput.</p>
                 </div>
                 <div class="card">
-                    <h3>Security Toolkits</h3>
-                    <p>Building automated setup and validation tools to ensure your development environment is secure by default.</p>
+                    <h3>Microservices Ready</h3>
+                    <p>Designed with a modular architecture: Core API, Mailer Service, and automated DB setup scripts.</p>
+                </div>
+                <div class="card">
+                    <h3>OAuth Provider</h3>
+                    <p>Acts as an OAuth 2.0 provider, allowing third-party applications to integrate securely with your ecosystem.</p>
                 </div>
             </div>
+        </section>
+
+        <section class="section">
+            <h2>Architecture Components</h2>
+            <ul>
+                <li><strong>auth-api</strong>: Core logic and session handling</li>
+                <li><strong>auth-mailer</strong>: Automated email notifications and OTPs</li>
+                <li><strong>setup</strong>: Automated database initialization</li>
+            </ul>
         </section>
 
         <section class="section" style="text-align: center;">

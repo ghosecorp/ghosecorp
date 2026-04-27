@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Tools & Libraries | Services | GHOSECORP</title>
+    <title>Sterling | Products | GHOSECORP</title>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -74,12 +74,39 @@
             color: var(--accent-color);
             margin-bottom: 15px;
         }
+        pre {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+        .tech-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #111;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-color);
+        }
         .product-link {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
             color: var(--accent-color);
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border-bottom: 1px solid transparent;
             transition: all 0.3s ease;
         }
@@ -108,31 +135,65 @@
 <body>
     <div class="container">
         <header>
-            <h1>Tools & Libraries</h1>
-            <p class="subtitle">Accelerating Developer Workflows</p>
+            <h1>Sterling</h1>
+            <p class="subtitle">Distributed In-Memory Cache Engine</p>
         </header>
 
         <section class="section">
-            <h2>Overview</h2>
-            <p>GHOSECORP develops high-utility software tools and libraries that empower developers to build faster, safer, and more efficient applications. Our focus is on solving complex infrastructure challenges through clean, well-documented code.</p>
+            <h2>About Sterling</h2>
+            <p>Sterling is GHOSECORP's high-speed caching solution, designed to accelerate data retrieval and reduce database load. Built with a focus on durability and multi-client scalability, it serves as a critical component in high-performance cloud architectures.</p>
+            <div style="margin-top: 20px;">
+                <span class="tech-badge">Asyncio</span>
+                <span class="tech-badge">RDB/AOF Persistence</span>
+                <span class="tech-badge">LRU Eviction</span>
+            </div>
         </section>
 
         <section class="section">
-            <h2>Our Tools</h2>
+            <h2>Core Capabilities</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>High-Performance Caching</h3>
-                    <p>Providing distributed in-memory storage solutions that minimize database bottlenecks and improve application responsiveness.</p>
-                    <a href="../../products/sterling/" class="product-link">Learn about Sterling →</a>
+                    <h3>High Durability</h3>
+                    <p>Unlike standard caches, Sterling offers AOF logging and RDB snapshotting to ensure zero data loss during restarts.</p>
                 </div>
                 <div class="card">
-                    <h3>Developer Frameworks</h3>
-                    <p>Creating specialized libraries and frameworks to handle complex networking and data transformation tasks.</p>
+                    <h3>Multi-Client Scalability</h3>
+                    <p>Async locks and event-driven architecture allow Sterling to handle thousands of concurrent connections.</p>
                 </div>
                 <div class="card">
-                    <h3>Security Toolkits</h3>
-                    <p>Building automated setup and validation tools to ensure your development environment is secure by default.</p>
+                    <h3>Extensible Clients</h3>
+                    <p>Native client support for high-performance integrations, unlocking hardware-level optimizations across multiple platforms.</p>
                 </div>
+                <div class="card">
+                    <h3>Intelligent Expiry</h3>
+                    <p>Fine-grained TTL (Time-To-Live) management and memory eviction policies to keep your cache efficient.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Python Integration</h2>
+            <pre>
+from sterling_client import Sterling
+
+with Sterling(host='localhost', port=9162) as client:
+    client.set('session:101', 'active')
+    status = client.get('session:101')</pre>
+        </section>
+
+        <section class="section">
+            <h2>Get Started</h2>
+            <div class="grid">
+                <a href="https://pypi.org/project/sterling-server/" class="card" style="text-decoration: none; color: inherit;">
+                    <h3>Sterling Server</h3>
+                    <p>Install the high-performance cache server directly via PyPI.</p>
+                    <code>pip install sterling-server</code>
+                </a>
+                <a href="https://pypi.org/project/sterling-client/" class="card" style="text-decoration: none; color: inherit;">
+                    <h3>Sterling Client</h3>
+                    <p>Integrate Sterling into your Python applications with ease.</p>
+                    <code>pip install sterling-client</code>
+                </a>
             </div>
         </section>
 

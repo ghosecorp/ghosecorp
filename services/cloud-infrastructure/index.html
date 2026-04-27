@@ -3,41 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Infrastructure | GHOSECORP</title>
+    <title>Cloud Infrastructure | Services | GHOSECORP</title>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #050505;
             --text-color: #f0f0f0;
             --accent-color: #00f2ff;
+            --accent-glow: rgba(0, 242, 255, 0.4);
         }
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Orbitron', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        header {
             text-align: center;
-            padding: 20px;
+            margin-bottom: 60px;
         }
         h1 {
             font-family: 'Michroma', sans-serif;
             text-transform: uppercase;
             color: var(--accent-color);
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--accent-glow);
         }
-        p {
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.6;
-            color: #ccc;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        h2 {
+            font-family: 'Michroma', sans-serif;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .product-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .product-link:hover {
+            border-bottom-color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
         }
         .back-btn {
+            display: inline-block;
+            margin-top: 40px;
             padding: 12px 30px;
             border: 2px solid var(--accent-color);
             color: var(--text-color);
@@ -49,13 +101,44 @@
         }
         .back-btn:hover {
             background: var(--accent-color);
-            color: #111;
+            color: #000;
         }
     </style>
 </head>
 <body>
-    <h1>Cloud Infrastructure</h1>
-    <p>Scalable and reliable cloud solutions are being engineered. GHOSECORP provides the flexible infrastructure your business needs to thrive in the digital age.</p>
-    <a href="../../" class="back-btn">Back to Home</a>
+    <div class="container">
+        <header>
+            <h1>Cloud Infrastructure</h1>
+            <p class="subtitle">Scalable, Secure, Reliable Environments</p>
+        </header>
+
+        <section class="section">
+            <h2>Overview</h2>
+            <p>GHOSECORP designs and deploys cloud-native infrastructures that are built for resilience and security. From microservices orchestration to secure identity management, we ensure your digital assets are protected and always available.</p>
+        </section>
+
+        <section class="section">
+            <h2>Solutions</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Identity & Access</h3>
+                    <p>Building secure authentication layers with OAuth 2.0, MFA, and RBAC to protect sensitive data and user sessions.</p>
+                    <a href="../../products/ghosecorp-auth/" class="product-link">Powered by ghosecorp-auth →</a>
+                </div>
+                <div class="card">
+                    <h3>Microservices Design</h3>
+                    <p>Architecting modular systems using Docker and Kubernetes for high availability and easy maintenance.</p>
+                </div>
+                <div class="card">
+                    <h3>Automated DevOps</h3>
+                    <p>Streamlining deployments with CI/CD pipelines, automated infrastructure-as-code, and robust monitoring.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center;">
+            <a href="../../" class="back-btn">Back to Home</a>
+        </section>
+    </div>
 </body>
 </html>
