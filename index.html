@@ -225,21 +225,21 @@
                     <p>Email: ghosecorp@gmail.com</p>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formsubmit.co/ghosecorp@gmail.com" method="POST">
                         <div class="form-group">
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" name="name" required>
                             <label for="name">Your Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" name="email" required>
                             <label for="email">Your Email</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" required>
+                            <input type="text" id="subject" name="subject" required>
                             <label for="subject">Subject</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" required></textarea>
+                            <textarea id="message" name="message" required></textarea>
                             <label for="message">Your Message</label>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
