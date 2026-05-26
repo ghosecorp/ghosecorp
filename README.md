@@ -1,3 +1,3 @@
 ## Hi there 👋
 
-https://ghosecorp.github.io/ghosecorp/
+https://ghosecorp.com
